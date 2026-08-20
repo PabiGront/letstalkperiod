@@ -73,7 +73,8 @@ export const generateWithAI = createServerFn({ method: "POST" })
     const content = json.choices?.[0]?.message?.content ?? "";
     const cleaned = content.replace(/^```(?:json)?/i, "").replace(/```$/, "").trim();
     try {
-      return { result: JSON.parse(cleaned) as unknown as Record<string, string | string[]> };
+      JSON.parse(cleaned);
+      return { json: cleaned };
     } catch {
       throw new Error("The AI returned an unexpected response. Please try generating again.");
     }
