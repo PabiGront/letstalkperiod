@@ -14,6 +14,7 @@ import { Route as EmailGeneratorRouteImport } from './routes/email-generator'
 import { Route as MeetingSummariserRouteImport } from './routes/meeting-summariser'
 import { Route as ResearchAssistantRouteImport } from './routes/research-assistant'
 import { Route as SavedWorkRouteImport } from './routes/saved-work'
+import { Route as SettingsRouteImport } from './routes/settings'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +41,11 @@ const SavedWorkRoute = SavedWorkRouteImport.update({
   path: '/saved-work',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/meeting-summariser': typeof MeetingSummariserRoute
   '/research-assistant': typeof ResearchAssistantRoute
   '/saved-work': typeof SavedWorkRoute
+  '/settings': typeof SettingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/meeting-summariser': typeof MeetingSummariserRoute
   '/research-assistant': typeof ResearchAssistantRoute
   '/saved-work': typeof SavedWorkRoute
+  '/settings': typeof SettingsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,6 +70,7 @@ export interface FileRoutesById {
   '/meeting-summariser': typeof MeetingSummariserRoute
   '/research-assistant': typeof ResearchAssistantRoute
   '/saved-work': typeof SavedWorkRoute
+  '/settings': typeof SettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -71,6 +80,7 @@ export interface FileRouteTypes {
     | '/meeting-summariser'
     | '/research-assistant'
     | '/saved-work'
+    | '/settings'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -78,6 +88,7 @@ export interface FileRouteTypes {
     | '/meeting-summariser'
     | '/research-assistant'
     | '/saved-work'
+    | '/settings'
   id:
     | '__root__'
     | '/'
@@ -85,6 +96,7 @@ export interface FileRouteTypes {
     | '/meeting-summariser'
     | '/research-assistant'
     | '/saved-work'
+    | '/settings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -93,6 +105,7 @@ export interface RootRouteChildren {
   MeetingSummariserRoute: typeof MeetingSummariserRoute
   ResearchAssistantRoute: typeof ResearchAssistantRoute
   SavedWorkRoute: typeof SavedWorkRoute
+  SettingsRoute: typeof SettingsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -132,6 +145,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SavedWorkRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -141,6 +161,7 @@ const rootRouteChildren: RootRouteChildren = {
   MeetingSummariserRoute: MeetingSummariserRoute,
   ResearchAssistantRoute: ResearchAssistantRoute,
   SavedWorkRoute: SavedWorkRoute,
+  SettingsRoute: SettingsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
