@@ -1,236 +1,149 @@
-# WorkFlow Assistant
+# Let's Talk. Period! — Work Assistant
 
-Build Prompt
+A modern, responsive workplace productivity assistant that helps teams turn raw notes, ideas, and research into polished, actionable output. Built as a SaaS-style dashboard with a premium white-and-soft-pink aesthetic.
 
-Create a modern, responsive workplace productivity assistant SaaS application called “Let’s Talk. Period! — Work Assistant”.
+![Built with Lovable](https://img.shields.io/badge/Built%20with-Lovable-ff69b4)
+![TanStack Start](https://img.shields.io/badge/TanStack%20Start-000000?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=white)
 
-Context
+---
 
-The application is being developed for Let’s Talk. Period!, an agency focused on helping young girls navigate menstruation with dignity, confidence, and access to the right support.
+## Features
 
-Important: The agency’s work is provided only as background context. Do not build a menstrual-health platform. The application itself must focus exclusively on workplace productivity and AI-assisted professional tasks.
+### 1. Meeting Notes Summariser
+Paste meeting notes or transcripts and get a structured summary including:
+- Executive summary
+- Key points discussed
+- Key decisions made
+- Action items with owners and due dates
+- Upcoming deadlines
+- Follow-up items
 
-The tool should help professionals save time, organise information, communicate effectively, and automate repetitive knowledge-work tasks.
+### 2. Smart Email Generator
+Generate ready-to-edit business emails with control over:
+- Tone (Professional, Friendly, Direct, Diplomatic, Enthusiastic)
+- Length (Short, Medium, Long)
+- Context such as recipient, purpose, and key points
 
-Core Features
+### 3. AI Research Assistant
+Break down complex research questions into:
+- Sub-questions to explore
+- Key findings and main themes
+- Insights and questions to explore further
+- Verification notes so claims are not stated as fact
 
-Build the application around three primary AI productivity tools:
+### 4. Dashboard & Saved Work
+- Quick-access cards for each tool
+- Productivity statistics
+- Recent activity feed
+- Persistent local document history with save, copy, and delete actions
 
-1. Meeting Notes Summariser
+---
 
-Allow users to paste or upload meeting notes, transcripts, or discussion points.
+## Tech Stack
 
-The AI should:
+- **[TanStack Start](https://tanstack.com/start)** — Full-stack React framework with SSR/SSG and server functions
+- **[React 19](https://react.dev)** — UI library
+- **[TypeScript](https://www.typescriptlang.org)** — Type-safe development
+- **[Tailwind CSS v4](https://tailwindcss.com)** — Utility-first styling
+- **[shadcn/ui](https://ui.shadcn.com)** — Accessible UI components
+- **[Lovable AI Gateway](https://docs.lovable.dev/features/ai-gateway)** — AI model access via `google/gemini-2.5-flash`
+- **Browser `localStorage`** — Lightweight document persistence for saved work
 
-Generate a concise meeting summary
+---
 
-Identify key discussion points
+## Getting Started
 
-Extract decisions that were made
+### Prerequisites
 
-Identify action items
+- [Node.js](https://nodejs.org) (LTS recommended)
+- [Bun](https://bun.sh) or npm
+- A Lovable workspace with AI Gateway enabled
 
-Assign action items to people when names are provided
+### Installation
 
-Identify deadlines or dates mentioned
-
-Highlight unresolved questions or follow-ups
-
-Allow the user to edit the generated summary before saving or sharing it
-
-Provide structured output sections such as:
-Summary | Key Decisions | Action Items | Deadlines | Follow-ups
-
-Include a button to Copy, Edit, Regenerate, and Save the output.
-
-2. Smart Email Generator
-
-Create an AI-powered email-writing assistant.
-
-Allow users to enter:
-
-What they want to communicate
-
-Recipient/context
-
-Desired tone
-
-Email length
-
-Optional key points that must be included
-
-Provide tone options such as:
-
-Professional
-
-Friendly
-
-Concise
-
-Formal
-
-Persuasive
-
-Apologetic
-
-The AI should generate a polished email based on the user's instructions.
-
-The generated email must remain fully editable. Include actions for:
-Edit | Regenerate | Copy
-
-Do not automatically send emails. The application should only assist with drafting.
-
-3. AI Research Assistant
-
-Create a workspace where professionals can enter a research question or topic.
-
-The AI should help users:
-
-Break a broad question into smaller research questions
-
-Identify key themes
-
-Summarise provided research material
-
-Extract important insights
-
-Compare information
-
-Generate an organised research brief
-
-Suggest areas that require further investigation
-
-Structure the output into sections such as:
-Research Question | Key Findings | Main Themes | Insights | Questions to Explore Further
-
-Include a clear distinction between information provided by the user and AI-generated suggestions. Do not present AI-generated information as verified fact.
-
-Dashboard UI
-
-Create a clean, modern SaaS dashboard with:
-
-Sidebar navigation
-
-Dashboard
-
-Meeting Summariser
-
-Email Generator
-
-Research Assistant
-
-Saved Work
-
-Settings
-
-Dashboard home page
-Include:
-
-Welcome message
-
-Quick-access cards for the three AI tools
-
-Recently created documents
-
-Recent activity
-
-Simple productivity statistics, such as tasks completed or documents created
-
-Design Direction
-
-The design should feel like a premium, modern SaaS productivity platform.
-
-Use:
-
-White as the primary background
-
-Soft and sophisticated shades of pink as the main accent colour
-
-Subtle pink gradients where appropriate
-
-Dark charcoal text
-
-Clean cards with rounded corners
-
-Generous whitespace
-
-Modern typography
-
-Minimal icons
-
-Subtle shadows
-
-Clear visual hierarchy
-
-The design should feel professional, polished, trustworthy, and contemporary, rather than overly playful or overly feminine.
-
-Use pink strategically as an accent rather than making the entire interface pink.
-
-Ensure the application is fully responsive across desktop, tablet, and mobile.
-
-AI Interaction Design
-
-Use structured AI prompts behind each tool to ensure consistent and useful outputs.
-
-Each AI tool should have:
-
-A clear input area
-
-Helpful placeholder text
-
-Optional settings
-
-A prominent Generate button
-
-Loading state while generating
-
-Structured AI output
-
-Editable output fields
-
-Copy and regenerate actions
-
-Clear error states
-
-The interface should make it obvious what information the user provides and what content has been generated by AI.
-
-Responsible AI
-
-Include a visible but unobtrusive Responsible AI disclaimer throughout the application.
-
-For example:
-
-AI-generated content may contain errors or omissions. Review and verify important information before using or sharing it. This tool is designed to assist with workplace productivity and does not replace professional judgement.
-
-For the Research Assistant, additionally remind users to verify important facts and sources independently.
-
-Do not claim that the AI has verified information unless verification actually occurs.
-
-Overall Goal
-
-The final application should feel like a realistic AI-powered workplace productivity SaaS product that a professional could use every day to reduce time spent on meeting administration, email writing, and research.
-
-Prioritise usability, clarity, accessibility, responsible AI, and a polished SaaS experience over unnecessary features.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://letstalkperiod.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/8364589b-b810-43d0-9c19-735b9f3e4d45).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
+```bash
+# Clone the repository
+git clone <repository-url>
 cd <repository-name>
-npm i
+
+# Install dependencies
+bun install
+# or
+npm install
+```
+
+### Development
+
+```bash
+bun dev
+# or
 npm run dev
 ```
+
+The app runs on `http://localhost:8080` by default.
+
+### Environment Variables
+
+This project uses Lovable's managed environment. The AI server function reads `LOVABLE_API_KEY` from the server runtime. No manual API keys are required for local development when running inside Lovable.
+
+---
+
+## Project Structure
+
+```text
+src/
+├── components/          # Shared UI components
+│   ├── AppLayout.tsx    # Responsive sidebar and page shell
+│   └── OutputBlock.tsx  # Editable AI output display
+├── lib/
+│   ├── ai.functions.ts  # Server functions for AI generation
+│   ├── storage.ts       # localStorage document persistence
+│   └── utils.ts         # Utility helpers
+├── routes/              # TanStack Start file-based routes
+│   ├── index.tsx        # Dashboard
+│   ├── meeting-summariser.tsx
+│   ├── email-generator.tsx
+│   ├── research-assistant.tsx
+│   ├── saved-work.tsx
+│   └── settings.tsx
+├── styles.css           # Tailwind v4 theme and custom tokens
+└── __root.tsx           # Root layout
+```
+
+---
+
+## Design System
+
+- **Primary accent:** Soft pink (`#F472B6` / `oklch(0.70 0.20 350)`)
+- **Background:** Clean white with subtle muted surfaces
+- **Text:** Charcoal / slate palette for high readability
+- **Typography:** Plus Jakarta Sans
+- **Radius:** Large rounded corners for a friendly, premium SaaS feel
+- **Icons:** Lucide React
+
+---
+
+## Responsible AI
+
+AI-generated content may contain errors or omissions. Always review and verify important information before using or sharing it. This tool assists with workplace productivity and does not replace professional judgement.
+
+---
+
+## Deployment
+
+This project is developed with [Lovable](https://lovable.dev). To deploy:
+
+1. Publish from the Lovable editor, or
+2. Connect the project to GitHub and deploy from your preferred hosting platform.
+
+---
+
+## License
+
+This project is private and proprietary to its owner unless otherwise stated.
+
+---
+
+Built with ❤️ using [Lovable](https://lovable.dev).
