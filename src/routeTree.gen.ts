@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EmailGeneratorRouteImport } from './routes/email-generator'
+import { Route as MeetingSummariserRouteImport } from './routes/meeting-summariser'
+import { Route as ResearchAssistantRouteImport } from './routes/research-assistant'
+import { Route as SavedWorkRouteImport } from './routes/saved-work'
+import { Route as SettingsRouteImport } from './routes/settings'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmailGeneratorRoute = EmailGeneratorRouteImport.update({
+  id: '/email-generator',
+  path: '/email-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeetingSummariserRoute = MeetingSummariserRouteImport.update({
+  id: '/meeting-summariser',
+  path: '/meeting-summariser',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchAssistantRoute = ResearchAssistantRouteImport.update({
+  id: '/research-assistant',
+  path: '/research-assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SavedWorkRoute = SavedWorkRouteImport.update({
+  id: '/saved-work',
+  path: '/saved-work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/email-generator': typeof EmailGeneratorRoute
+  '/meeting-summariser': typeof MeetingSummariserRoute
+  '/research-assistant': typeof ResearchAssistantRoute
+  '/saved-work': typeof SavedWorkRoute
+  '/settings': typeof SettingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/email-generator': typeof EmailGeneratorRoute
+  '/meeting-summariser': typeof MeetingSummariserRoute
+  '/research-assistant': typeof ResearchAssistantRoute
+  '/saved-work': typeof SavedWorkRoute
+  '/settings': typeof SettingsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/email-generator': typeof EmailGeneratorRoute
+  '/meeting-summariser': typeof MeetingSummariserRoute
+  '/research-assistant': typeof ResearchAssistantRoute
+  '/saved-work': typeof SavedWorkRoute
+  '/settings': typeof SettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/email-generator'
+    | '/meeting-summariser'
+    | '/research-assistant'
+    | '/saved-work'
+    | '/settings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/email-generator'
+    | '/meeting-summariser'
+    | '/research-assistant'
+    | '/saved-work'
+    | '/settings'
+  id:
+    | '__root__'
+    | '/'
+    | '/email-generator'
+    | '/meeting-summariser'
+    | '/research-assistant'
+    | '/saved-work'
+    | '/settings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EmailGeneratorRoute: typeof EmailGeneratorRoute
+  MeetingSummariserRoute: typeof MeetingSummariserRoute
+  ResearchAssistantRoute: typeof ResearchAssistantRoute
+  SavedWorkRoute: typeof SavedWorkRoute
+  SettingsRoute: typeof SettingsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/email-generator': {
+      id: '/email-generator'
+      path: '/email-generator'
+      fullPath: '/email-generator'
+      preLoaderRoute: typeof EmailGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meeting-summariser': {
+      id: '/meeting-summariser'
+      path: '/meeting-summariser'
+      fullPath: '/meeting-summariser'
+      preLoaderRoute: typeof MeetingSummariserRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/research-assistant': {
+      id: '/research-assistant'
+      path: '/research-assistant'
+      fullPath: '/research-assistant'
+      preLoaderRoute: typeof ResearchAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/saved-work': {
+      id: '/saved-work'
+      path: '/saved-work'
+      fullPath: '/saved-work'
+      preLoaderRoute: typeof SavedWorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EmailGeneratorRoute: EmailGeneratorRoute,
+  MeetingSummariserRoute: MeetingSummariserRoute,
+  ResearchAssistantRoute: ResearchAssistantRoute,
+  SavedWorkRoute: SavedWorkRoute,
+  SettingsRoute: SettingsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
